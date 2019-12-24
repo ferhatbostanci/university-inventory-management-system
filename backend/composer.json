@@ -1,5 +1,6 @@
 {
     "require": {
+        "bryanjhv/slim-session": "4.0.0",
         "illuminate/database": "^6.8",
         "php-di/php-di": "^6.0",
         "selective/config": "^0.1.1",

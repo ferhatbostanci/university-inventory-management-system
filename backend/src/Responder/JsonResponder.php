@@ -36,14 +36,18 @@ final class JsonResponder
      */
     public function render(array $data = null): ResponseInterface
     {
+        $response = $this->responseFactory->createResponse()->withHeader('Content-Type', 'application/json');
+        if (isset($data['code'])) {
+            $response = $response->withStatus($data['code']);
+            unset($data['code']);
+        }
 
         $json = json_encode($data);
         if (!$json) {
             throw new JsonEncodeException('Malformed UTF-8 characters, possibly incorrectly encoded.');
         }
-
-        $response = $this->responseFactory->createResponse()->withHeader('Content-Type', 'application/json');
         $response->getBody()->write($json);
+
         return $response;
     }
 }
