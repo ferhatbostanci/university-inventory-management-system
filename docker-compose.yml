@@ -1,0 +1,8 @@
+version: "2"
+
+services:
+
+  app:
+    build: ./frontend
+    ports:
+      - '8080:8080'
