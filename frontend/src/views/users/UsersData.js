@@ -24,7 +24,7 @@ const usersData = [
   { username: 'Einar Randall', registered: '2012/02/01', role: 'Admin', status: 'Inactive', _classes: 'table-danger'},
   { username: 'Félix Troels', registered: '2012/03/21', role: 'Staff', status: 'Active'},
   { username: 'Aulus Agmundr', registered: '2012/01/01', role: 'Member', status: 'Pending'}
-]
+];
 
 export default usersData
 

@@ -5,9 +5,8 @@
     :show.sync="show"
   >
     <CSidebarBrand 
-      :imgFull="{ width: 118, height: 46, alt: 'Logo', src: 'img/brand/coreui-base-white.svg'}"
-      :imgMinimized="{ width: 118, height: 46, alt: 'Logo', src: 'img/brand/coreui-signet-white.svg'}"
-      :wrappedInLink="{ href: 'https://coreui.io/', target: '_blank'}"
+      :imgFull="{ width: 60, height: 50, alt: 'Logo', src: 'https://img.pngio.com/inventory-inventory-control-manufacturing-icon-with-png-and-inventory-png-512_453.png'}"
+      :imgMinimized="{ width: 60, height: 50, alt: 'Logo', src: 'https://img.pngio.com/inventory-inventory-control-manufacturing-icon-with-png-and-inventory-png-512_453.png'}"
     />
     <CRenderFunction flat :content-to-render="nav"/>
     <CSidebarMinimizer

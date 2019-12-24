@@ -1,17 +1,23 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-// Users
-const Login = () => import('@/views/pages/Login');
-
-/*
 // Containers
 const TheContainer = () => import('@/containers/TheContainer');
 
-// Views
+// Home
 const Dashboard = () => import('@/views/Dashboard');
 
-const Colors = () => import('@/views/theme/Colors');
+// User Pages
+const Login = () => import('@/views/new/users/Login');
+
+// Items
+const ItemsList = () => import('@/views/new/items/ItemsList');
+
+// Error Pages
+const Page404 = () => import('@/views/new/error/Page404');
+const Page500 = () => import('@/views/new/error/Page500');
+
+/*const Colors = () => import('@/views/theme/Colors');
 const Typography = () => import('@/views/theme/Typography');
 
 const Charts = () => import('@/views/charts/Charts');
@@ -52,8 +58,6 @@ const Badges = () => import('@/views/notifications/Badges');
 const Modals = () => import('@/views/notifications/Modals');
 
 // Views - Pages
-const Page404 = () => import('@/views/pages/Page404');
-const Page500 = () => import('@/views/pages/Page500');
 const Register = () => import('@/views/pages/Register');
 
 // Users
@@ -62,32 +66,69 @@ const User = () => import('@/views/users/User');*/
 
 Vue.use(Router);
 
+const appName = "UIMS - ";
+
 export default new Router({
+
   mode: 'history',
   linkActiveClass: 'active',
   scrollBehavior: () => ({ y: 0 }),
-  routes: configRoutes()
-})
-
-function configRoutes () {
-  return [
+  routes: [
+    {
+      path: '/',
+      name: 'Home',
+      component: TheContainer,
+      children: [
+        {
+          path: '/',
+          name: 'Dashboard',
+          meta: {title: appName + 'Gösterge Paneli'},
+          component: Dashboard
+        },
+        {
+          path: '/items',
+          name: 'Items',
+          redirect: '/404',
+          component: {
+            render (c) { return c('router-view') }
+          },
+          children: [
+            {
+              path: 'list',
+              name: 'Ürünleri Listele',
+              meta: {title: appName + 'Ürünler Listesi'},
+              component: ItemsList
+            }
+          ]
+        }
+      ]
+    },
     {
       path: '/users',
-      redirect: 'pages/404',
       name: 'Users',
+      redirect: '/404',
       component: {
-        render (c) {
-          return c('router-view');
-        }
+        render (c) { return c('router-view') }
       },
       children: [
         {
           path: 'login',
           name: 'Giriş Yap',
+          meta: {title: appName + 'Giriş Yap'},
           component: Login
         }
       ]
+    },
+    {
+      path: '/404',
+      name: 'Page404',
+      component: Page404
+    },
+    {
+      path: '/500',
+      name: 'Page500',
+      component: Page500
     }
   ]
-}
 
+});

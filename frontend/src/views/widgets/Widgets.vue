@@ -487,7 +487,7 @@
 <script>
 import WidgetsBrand from './WidgetsBrand'
 import WidgetsDropdown from './WidgetsDropdown'
-import { CChartLineSimple, CChartBarSimple } from '../charts/index.js'
+import { CChartLineSimple, CChartBarSimple } from '../charts'
 
 export default {
   name: 'Widgets',

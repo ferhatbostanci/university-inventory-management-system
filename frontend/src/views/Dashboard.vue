@@ -6,7 +6,7 @@
         <CRow>
           <CCol sm="5">
             <h4 id="traffic" class="card-title mb-0">Traffic</h4>
-            <div class="small text-muted">November 2017</div>
+            <div class="small text-muted">Aralık 2019</div>
           </CCol>
           <CCol sm="7" class="d-none d-md-block">
             <CButton color="primary" class="float-right">
@@ -82,7 +82,6 @@
         </CRow>
       </CCardFooter>
     </CCard>
-    <WidgetsBrand/>
     <CRow>
       <CCol md="12">
         <CCard>

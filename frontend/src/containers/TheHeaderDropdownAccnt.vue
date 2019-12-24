@@ -9,31 +9,12 @@
       <CHeaderNavLink>
         <div class="c-avatar">
           <img
-            src="img/avatars/6.jpg"
+            src="https://static1.tothenew.com/blog/wp-content/uploads/2014/12/golang.jpg"
             class="c-avatar-img "
           />
         </div>
       </CHeaderNavLink>
     </template>
-    <CDropdownHeader tag="div" class="text-center" color="light">
-      <strong>Account</strong>
-    </CDropdownHeader>
-    <CDropdownItem>
-      <CIcon name="cil-bell"/> Updates
-      <CBadge color="info" class="ml-auto">{{ itemsCount }}</CBadge>
-    </CDropdownItem>
-    <CDropdownItem>
-      <CIcon name="cil-envelope-open" /> Messages
-      <CBadge color="success" class="ml-auto">{{ itemsCount }}</CBadge>
-    </CDropdownItem>
-    <CDropdownItem>
-      <CIcon name="cil-task" /> Tasks
-      <CBadge color="danger" class="ml-auto">{{ itemsCount }}</CBadge>
-    </CDropdownItem>
-    <CDropdownItem>
-      <CIcon name="cil-comment-square" /> Comments
-      <CBadge color="warning" class="ml-auto">{{ itemsCount }}</CBadge>
-    </CDropdownItem>
     <CDropdownHeader
       tag="div"
       class="text-center"
@@ -42,25 +23,21 @@
       <strong>Settings</strong>
     </CDropdownHeader>
     <CDropdownItem>
-      <CIcon name="cil-user" /> Profile
+      <CIcon name="cil-user" /> Profil
     </CDropdownItem>
     <CDropdownItem>
-      <CIcon name="cil-settings" /> Settings
+      <CIcon name="cil-settings" /> Ayarlar
     </CDropdownItem>
     <CDropdownItem>
-      <CIcon name="cil-dollar" /> Payments
-      <CBadge color="secondary" class="ml-auto">{{ itemsCount }}</CBadge>
-    </CDropdownItem>
-    <CDropdownItem>
-      <CIcon name="cil-file" /> Projects
+      <CIcon name="cil-layers" /> Envanterim
       <CBadge color="primary" class="ml-auto">{{ itemsCount }}</CBadge>
     </CDropdownItem>
     <CDropdownDivider/>
     <CDropdownItem>
-      <CIcon name="cil-shield-alt" /> Lock Account
+      <CIcon name="cil-shield-alt" /> Hesabı Kilitle
     </CDropdownItem>
-    <CDropdownItem>
-      <CIcon name="cil-lock-locked" /> Logout
+    <CDropdownItem v-on:click="$store.dispatch('logout').then(() => {$router.push('users/login')})">
+      <CIcon name="cil-lock-locked" /> Çıkış Yap
     </CDropdownItem>
   </CDropdown>
 </template>
@@ -70,7 +47,7 @@ export default {
   name: 'TheHeaderDropdownAccnt',
   data () {
     return { 
-      itemsCount: 42
+      itemsCount: 0
     }
   }
 }
