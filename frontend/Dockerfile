@@ -4,10 +4,7 @@ FROM node:lts-alpine
 RUN npm install -g http-server
 
 # make the 'app' folder the current working directory
-WORKDIR /test
-
-# copy both 'package.json' and 'package-lock.json' (if available)
-COPY package*.json ./
+WORKDIR .
 
 # install project dependencies
 RUN npm install
@@ -16,7 +13,7 @@ RUN npm install
 COPY . .
 
 # build app for production with minification
-RUN npm run build
+RUN npm run serve
 
 EXPOSE 8080
 CMD [ "http-server", "dist" ]
